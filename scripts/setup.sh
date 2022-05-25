@@ -2,7 +2,11 @@
 
 
 cmds=("brew" "ls")
-brewCaskPkgs=('visual-studio-code'
+brewCaskPkgs=(
+              'iterm2' 
+              'visual-studio-code'
+              'tiles'
+              'clipy'
          )
 brewPkgs=('python3')
 
