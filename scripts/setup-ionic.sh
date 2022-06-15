@@ -3,15 +3,9 @@
 
 cmds=("brew" "ls")
 brewCaskPkgs=(
-              'iterm2' 
-              'visual-studio-code'
-              'tiles'
-              'clipy'
          )
 brewPkgs=(
-              'python3'
-	      'mas'
-              'gh'
+              'node'
 	)
 
 installBrew () {
@@ -38,15 +32,6 @@ installBrewPackages () {
 
 }
 
-linkPython () {
-  ls /usr/local/bin/python 1>&2 2>/dev/null
-  if [ $rc ]; then
-     ln -s /usr/local/bin/python3 /usr/local/bin/python
-  else
-    echo "Python link already exists"
-  fi
-  
-}
 
 for cmd in ${cmds[@]}; do
   #cmd=${cmds[$i]}
@@ -77,7 +62,4 @@ done
 installBrewCaskPackages
 installBrewPackages
 
-linkPython
-
-
-
+npm install -g @ionic/cli
