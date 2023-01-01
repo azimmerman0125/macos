@@ -7,12 +7,18 @@ brewCaskPkgs=(
               'visual-studio-code'
               'tiles'
               'clipy'
+              'google-chrome'
+              'microsoft-office'
          )
 brewPkgs=(
               'python3'
 	      'mas'
               'gh'
 	)
+
+masPkgs=(
+               'greenshot:1103915944'
+        )
 
 installBrew () {
   /bin/bash -c "$(/usr/bin/curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -48,6 +54,16 @@ linkPython () {
   
 }
 
+installAppStoreApps () {
+  for pkg in ${masPkgs[@]}; do
+    appName=$(echo $pkg | awk -F: '{print $1}')
+    appId=$(echo $pkg | awk -F: '{print $2}')
+    echo "Install App Store App : $appName"
+    mas install $appId
+  done
+
+}
+
 for cmd in ${cmds[@]}; do
   #cmd=${cmds[$i]}
   echo $cmd
@@ -79,5 +95,6 @@ installBrewPackages
 
 linkPython
 
+installAppStoreApps
 
 
