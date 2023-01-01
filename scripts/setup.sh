@@ -18,6 +18,7 @@ brewPkgs=(
 
 masPkgs=(
                'greenshot:1103915944'
+               'microsoft-todo:1274495053'
         )
 
 installBrew () {
